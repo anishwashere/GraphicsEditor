@@ -90,13 +90,34 @@ void put_dot(int row, int col)
         canvas[row][col] = DOT;
 }
  
-// removes the dots from the canvas (or) replaces '*' with '_'
+// removes the dots from the canvas (or) replaces '*' back to '_'
 void remove_dot(int row, int col)
 {
     if (row >= 0 && row < ROWS && col >= 0 && col < COLS)
         canvas[row][col] = BLANK;
 }
 
+// Draws a rectangle using '*'
+void draw_rectangle(int x, int y, int width, int height)
+{
+    int i;
+
+    // top side
+    for(i = x; i < x + width; i++)
+        put_dot(y, i);
+
+    // bottom side
+    for(i = x; i < x + width; i++)
+        put_dot(y + height - 1, i);
+
+    // left side
+    for(i = y; i < y + height; i++)
+        put_dot(i, x);
+
+    // right side
+    for(i = y; i < y + height; i++)
+        put_dot(i, x + width - 1);
+}
 
 
 
@@ -104,6 +125,7 @@ void remove_dot(int row, int col)
 int main(void)
 {
     clear_canvas();
+    draw_rectangle(10, 5, 20, 8);
     show_canvas();
 
     return 0;
