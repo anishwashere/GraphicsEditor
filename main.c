@@ -119,13 +119,30 @@ void draw_rectangle(int x, int y, int width, int height)
         put_dot(i, x + width - 1);
 }
 
+void draw_line(int x1, int y1, int x2, int y2)
+{
+    int i;
 
+    if(y1 == y2) // horizontal line
+    {
+        for(i = x1; i <= x2; i++)
+            put_dot(y1, i);
+    }
+
+    else if(x1 == x2) // vertical line
+    {
+        for(i = y1; i <= y2; i++)
+            put_dot(i, x1);
+    }
+}
 
 
 int main(void)
 {
     clear_canvas();
     draw_rectangle(10, 5, 20, 8);
+    draw_line(5, 15, 25, 15);
+    draw_line(40,5,40,18);
     show_canvas();
 
     return 0;
