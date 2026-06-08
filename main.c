@@ -119,6 +119,7 @@ void draw_rectangle(int x, int y, int width, int height)
         put_dot(i, x + width - 1);
 }
 
+//draw a line (vertical and horizontal)
 void draw_line(int x1, int y1, int x2, int y2)
 {
     int i;
@@ -154,6 +155,27 @@ void draw_triangle(int x, int y, int height)
         put_dot(y + height - 1, i);
 }
 
+// Draws a  circle
+void draw_circle(int x, int y, int radius)
+{
+    int row, col;
+    int distance;
+
+    for(row = y - radius; row <= y + radius; row++)
+    {
+        for(col = x - radius; col <= x + radius; col++)
+        {
+            distance = (row - y) * (row - y) +
+                       (col - x) * (col - x);
+
+            if(distance >= radius * radius - 2 &&
+               distance <= radius * radius + 2)
+            {
+                put_dot(row, col);
+            }
+        }
+    }
+}
 
 
 
@@ -168,6 +190,8 @@ int main(void)
     draw_line(40,5,40,18);
 
     draw_triangle(55, 8, 6);
+
+    draw_circle(25, 18, 5);
 
     show_canvas();
 
