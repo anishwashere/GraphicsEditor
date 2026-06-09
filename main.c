@@ -239,6 +239,18 @@ void delete_shape(int id)
         }
     }
 }
+void delete_shape_menu(void)
+{
+    int id;
+
+    printf("Enter shape ID to delete: ");
+    scanf("%d", &id);
+
+    delete_shape(id);
+
+    clear_canvas();
+    redraw_shapes();
+}
 
 void list_shapes(void)
 {
@@ -329,6 +341,9 @@ int main(void)
             case 1:
                 add_rectangle();
                 break;
+            case 5:
+                delete_shape_menu();
+                break;
             case 6:
                 list_shapes();
                 break;
@@ -389,7 +404,7 @@ int main(void)
 // shapes[4].y = 18;
 // shapes[4].a = 5;
 
-total = 5;
+// total = 5;
 
     // draw_line(5, 15, 25, 15);
 
@@ -399,13 +414,13 @@ total = 5;
 
     // draw_circle(25, 18, 5);
 
-    delete_shape(5);
+    //delete_shape(5);
 
-    redraw_shapes();
+    // redraw_shapes();
 
-    list_shapes();
+    // list_shapes();
 
-    show_canvas();
+    // show_canvas();
 
     return 0;
 }
