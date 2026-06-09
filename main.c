@@ -240,6 +240,31 @@ void delete_shape(int id)
     }
 }
 
+void list_shapes(void)
+{
+    int i;
+
+    printf("\nID\tType\t\tAlive\n");
+
+    for(i = 0; i < total; i++)
+    {
+        printf("%d\t", shapes[i].id);
+
+        if(shapes[i].type == RECTANGLE)
+            printf("Rectangle\t");
+        else if(shapes[i].type == LINE)
+            printf("Line\t\t");
+        else if(shapes[i].type == CIRCLE)
+            printf("Circle\t\t");
+        else if(shapes[i].type == TRIANGLE)
+            printf("Triangle\t");
+
+        if(shapes[i].alive)
+            printf("Yes\n");
+        else
+            printf("No\n");
+    }
+}
 
 
 int main(void)
@@ -256,7 +281,7 @@ shapes[0].a = 20;
 shapes[0].b = 8;
 
 // Horizontal line
-shapes[1].id=1+2;
+shapes[1].id=2;
 shapes[1].type = LINE;
 shapes[1].alive = 1;
 shapes[1].x = 5;
@@ -302,6 +327,8 @@ total = 5;
     delete_shape(5);
 
     redraw_shapes();
+
+    list_shapes();
 
     show_canvas();
 
