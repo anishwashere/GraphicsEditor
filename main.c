@@ -322,6 +322,35 @@ void add_rectangle(void)
     redraw_shapes();
 }
 
+void add_line(void)
+{
+    int x1, y1, x2, y2;
+
+    printf("Enter x1: ");
+    scanf("%d", &x1);
+
+    printf("Enter y1: ");
+    scanf("%d", &y1);
+
+    printf("Enter x2: ");
+    scanf("%d", &x2);
+
+    printf("Enter y2: ");
+    scanf("%d", &y2);
+
+    shapes[total].id = next_id++;
+    shapes[total].type = LINE;
+    shapes[total].alive = 1;
+    shapes[total].x = x1;
+    shapes[total].y = y1;
+    shapes[total].a = x2;
+    shapes[total].b = y2;
+
+    total++;
+
+    clear_canvas();
+    redraw_shapes();
+}
 
 int main(void)
 {
@@ -340,6 +369,9 @@ int main(void)
         {
             case 1:
                 add_rectangle();
+                break;
+            case 2:
+                add_line();
                 break;
             case 5:
                 delete_shape_menu();
