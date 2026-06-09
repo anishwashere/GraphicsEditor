@@ -267,52 +267,127 @@ void list_shapes(void)
 }
 
 
+void show_menu(void)
+{
+    printf("\n===== Graphics Editor =====\n");
+    printf("1. Add Rectangle\n");
+    printf("2. Add Line\n");
+    printf("3. Add Circle\n");
+    printf("4. Add Triangle\n");
+    printf("5. Delete Shape\n");
+    printf("6. List Shapes\n");
+    printf("7. Show Canvas\n");
+    printf("8. Exit\n");
+}
+
+void add_rectangle(void)
+{
+    int x, y, width, height;
+
+    printf("Enter x: ");
+    scanf("%d", &x);
+
+    printf("Enter y: ");
+    scanf("%d", &y);
+
+    printf("Enter width: ");
+    scanf("%d", &width);
+
+    printf("Enter height: ");
+    scanf("%d", &height);
+
+    shapes[total].id = next_id++;
+    shapes[total].type = RECTANGLE;
+    shapes[total].alive = 1;
+    shapes[total].x = x;
+    shapes[total].y = y;
+    shapes[total].a = width;
+    shapes[total].b = height;
+
+    total++;
+
+    clear_canvas();
+    redraw_shapes();
+}
+
+
 int main(void)
 {
     clear_canvas();
 
-// Rectangle
-shapes[0].id=1;
-shapes[0].type = RECTANGLE;
-shapes[0].alive = 0;
-shapes[0].x = 10;
-shapes[0].y = 5;
-shapes[0].a = 20;
-shapes[0].b = 8;
+    int choice;
 
-// Horizontal line
-shapes[1].id=2;
-shapes[1].type = LINE;
-shapes[1].alive = 1;
-shapes[1].x = 5;
-shapes[1].y = 15;
-shapes[1].a = 25;
-shapes[1].b = 15;
+    while(1)
+    {
+        show_menu();
 
-// Vertical line
-shapes[2].id=3;
-shapes[2].type = LINE;
-shapes[2].alive = 1;
-shapes[2].x = 40;
-shapes[2].y = 5;
-shapes[2].a = 40;
-shapes[2].b = 18;
+        printf("Enter choice: ");
+        scanf("%d", &choice);
 
-// Triangle
-shapes[3].id=4;
-shapes[3].type = TRIANGLE;
-shapes[3].alive = 1;
-shapes[3].x = 55;
-shapes[3].y = 8;
-shapes[3].a = 6;
+        switch(choice)
+        {
+            case 1:
+                add_rectangle();
+                break;
+            case 6:
+                list_shapes();
+                break;
 
-// Circle
-shapes[4].id=5;
-shapes[4].type = CIRCLE;
-shapes[4].alive = 1;
-shapes[4].x = 25;
-shapes[4].y = 18;
-shapes[4].a = 5;
+            case 7:
+                show_canvas();
+                break;
+
+            case 8:
+                printf("Exiting...\n");
+                return 0;
+
+            default:
+                printf("Option not implemented yet.\n");
+        }
+    }
+
+// // Rectangle
+// shapes[0].id=1;
+// shapes[0].type = RECTANGLE;
+// shapes[0].alive = 0;
+// shapes[0].x = 10;
+// shapes[0].y = 5;
+// shapes[0].a = 20;
+// shapes[0].b = 8;
+
+// // Horizontal line
+// shapes[1].id=2;
+// shapes[1].type = LINE;
+// shapes[1].alive = 1;
+// shapes[1].x = 5;
+// shapes[1].y = 15;
+// shapes[1].a = 25;
+// shapes[1].b = 15;
+
+// // Vertical line
+// shapes[2].id=3;
+// shapes[2].type = LINE;
+// shapes[2].alive = 1;
+// shapes[2].x = 40;
+// shapes[2].y = 5;
+// shapes[2].a = 40;
+// shapes[2].b = 18;
+
+// // Triangle
+// shapes[3].id=4;
+// shapes[3].type = TRIANGLE;
+// shapes[3].alive = 1;
+// shapes[3].x = 55;
+// shapes[3].y = 8;
+// shapes[3].a = 6;
+
+// // Circle
+// shapes[4].id=5;
+// shapes[4].type = CIRCLE;
+// shapes[4].alive = 1;
+// shapes[4].x = 25;
+// shapes[4].y = 18;
+// shapes[4].a = 5;
 
 total = 5;
 
