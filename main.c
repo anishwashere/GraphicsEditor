@@ -378,6 +378,32 @@ void add_circle(void)
     redraw_shapes();
 }
 
+void add_triangle(void)
+{
+    int x, y, height;
+
+    printf("Enter apex x: ");
+    scanf("%d", &x);
+
+    printf("Enter apex y: ");
+    scanf("%d", &y);
+
+    printf("Enter height: ");
+    scanf("%d", &height);
+
+    shapes[total].id = next_id++;
+    shapes[total].type = TRIANGLE;
+    shapes[total].alive = 1;
+    shapes[total].x = x;
+    shapes[total].y = y;
+    shapes[total].a = height;
+
+    total++;
+
+    clear_canvas();
+    redraw_shapes();
+}
+
 int main(void)
 {
     clear_canvas();
@@ -401,6 +427,9 @@ int main(void)
                 break;
             case 3:
                 add_circle();
+                break;
+            case 4:
+                add_triangle();
                 break;
             case 5:
                 delete_shape_menu();
