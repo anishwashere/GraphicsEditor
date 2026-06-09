@@ -352,6 +352,32 @@ void add_line(void)
     redraw_shapes();
 }
 
+void add_circle(void)
+{
+    int x, y, radius;
+
+    printf("Enter center x: ");
+    scanf("%d", &x);
+
+    printf("Enter center y: ");
+    scanf("%d", &y);
+
+    printf("Enter radius: ");
+    scanf("%d", &radius);
+
+    shapes[total].id = next_id++;
+    shapes[total].type = CIRCLE;
+    shapes[total].alive = 1;
+    shapes[total].x = x;
+    shapes[total].y = y;
+    shapes[total].a = radius;
+
+    total++;
+
+    clear_canvas();
+    redraw_shapes();
+}
+
 int main(void)
 {
     clear_canvas();
@@ -372,6 +398,9 @@ int main(void)
                 break;
             case 2:
                 add_line();
+                break;
+            case 3:
+                add_circle();
                 break;
             case 5:
                 delete_shape_menu();
