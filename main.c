@@ -10,8 +10,8 @@
 #include <stdlib.h>
  
 /* ------- canvas size and special characters ------- */
-#define ROWS    25     
-#define COLS    70    
+#define ROWS    30    
+#define COLS    100  
 #define BLANK   '_'     /* empty cell character*/
 #define DOT     '*'     /* drawn cell character*/
 #define MAX     64
@@ -250,6 +250,7 @@ void delete_shape_menu(void)
 
     clear_canvas();
     redraw_shapes();
+    printf("Shape with ID %d deleted successfully!\n", id);
 }
 
 void list_shapes(void)
@@ -278,9 +279,12 @@ void list_shapes(void)
     }
 }
 
-
 void show_menu(void)
 {
+    printf("\nCanvas Size: 100 columns x 30 rows\n");
+    printf("Valid Columns: 0 - 99\n");
+    printf("Valid Rows: 0 - 29\n");
+    printf("\n");
     printf("\n===== Graphics Editor =====\n");
     printf("1. Add Rectangle\n");
     printf("2. Add Line\n");
@@ -374,10 +378,10 @@ void add_rectangle(void)
 {
     int x, y, width, height;
 
-    printf("Enter x: ");
+    printf("Enter left column (x) [0-99]: ");
     scanf("%d", &x);
 
-    printf("Enter y: ");
+    printf("Enter top row (y) [0-29]: ");
     scanf("%d", &y);
 
     printf("Enter width: ");
@@ -398,22 +402,23 @@ void add_rectangle(void)
 
     clear_canvas();
     redraw_shapes();
+    printf("Rectangle added successfully!\n");
 }
 
 void add_line(void)
 {
     int x1, y1, x2, y2;
 
-    printf("Enter x1: ");
+    printf("Enter start column x1 [0-99]: ");
     scanf("%d", &x1);
 
-    printf("Enter y1: ");
+    printf("Enter start row y1 [0-29]: ");
     scanf("%d", &y1);
 
-    printf("Enter x2: ");
+    printf("Enter end column x2 [0-99]: ");
     scanf("%d", &x2);
 
-    printf("Enter y2: ");
+    printf("Enter end row y2 [0-29]: ");
     scanf("%d", &y2);
 
     shapes[total].id = next_id++;
@@ -428,16 +433,18 @@ void add_line(void)
 
     clear_canvas();
     redraw_shapes();
+    printf("Line added successfully!\n");
+
 }
 
 void add_circle(void)
 {
     int x, y, radius;
 
-    printf("Enter center x: ");
+    printf("Enter center column (x) [0-99]: ");
     scanf("%d", &x);
 
-    printf("Enter center y: ");
+    printf("Enter center row (y) [0-29]: ");
     scanf("%d", &y);
 
     printf("Enter radius: ");
@@ -454,16 +461,18 @@ void add_circle(void)
 
     clear_canvas();
     redraw_shapes();
+
+    printf("Circle added successfully!\n");
 }
 
 void add_triangle(void)
 {
     int x, y, height;
 
-    printf("Enter apex x: ");
+    printf("Enter apex column (x) [0-99]: ");
     scanf("%d", &x);
 
-    printf("Enter apex y: ");
+    printf("Enter apex row (y) [0-29]: ");
     scanf("%d", &y);
 
     printf("Enter height: ");
@@ -480,6 +489,8 @@ void add_triangle(void)
 
     clear_canvas();
     redraw_shapes();
+
+    printf("Triangle added successfully!\n");
 }
 
 int main(void)
@@ -529,68 +540,6 @@ int main(void)
                 return 0;
         }
     }
-
-// // Rectangle
-// shapes[0].id=1;
-// shapes[0].type = RECTANGLE;
-// shapes[0].alive = 0;
-// shapes[0].x = 10;
-// shapes[0].y = 5;
-// shapes[0].a = 20;
-// shapes[0].b = 8;
-
-// // Horizontal line
-// shapes[1].id=2;
-// shapes[1].type = LINE;
-// shapes[1].alive = 1;
-// shapes[1].x = 5;
-// shapes[1].y = 15;
-// shapes[1].a = 25;
-// shapes[1].b = 15;
-
-// // Vertical line
-// shapes[2].id=3;
-// shapes[2].type = LINE;
-// shapes[2].alive = 1;
-// shapes[2].x = 40;
-// shapes[2].y = 5;
-// shapes[2].a = 40;
-// shapes[2].b = 18;
-
-// // Triangle
-// shapes[3].id=4;
-// shapes[3].type = TRIANGLE;
-// shapes[3].alive = 1;
-// shapes[3].x = 55;
-// shapes[3].y = 8;
-// shapes[3].a = 6;
-
-// // Circle
-// shapes[4].id=5;
-// shapes[4].type = CIRCLE;
-// shapes[4].alive = 1;
-// shapes[4].x = 25;
-// shapes[4].y = 18;
-// shapes[4].a = 5;
-
-// total = 5;
-
-    // draw_line(5, 15, 25, 15);
-
-    // draw_line(40,5,40,18);
-
-    // draw_triangle(55, 8, 6);
-
-    // draw_circle(25, 18, 5);
-
-    //delete_shape(5);
-
-    // redraw_shapes();
-
-    // list_shapes();
-
-    // show_canvas();
-
     return 0;
 }
 // | Shape     | x          | y          | a      | b      |
