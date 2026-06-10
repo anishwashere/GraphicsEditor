@@ -1,0 +1,207 @@
+Project Overview
+
+The Graphics Editor is a menu-driven console application developed in the C programming language that simulates basic computer graphics operations using a two-dimensional character array as a drawing canvas. The application allows users to create, manage, and manipulate graphical objects within a text-based environment without relying on external graphics libraries.
+
+The primary objective of the project is to demonstrate the practical implementation of fundamental programming concepts such as arrays, structures, functions, loops, conditional statements, modular programming, and data management while providing a simple graphical editing experience through a command-line interface.
+
+The editor represents empty canvas spaces using the underscore character (_) and graphical objects using the asterisk character (*). Users can interact with the system through a menu-driven interface to perform various operations on graphical shapes.
+
+Objectives
+
+The main objectives of the project are:
+
+To implement a 2D drawing canvas using a character array.
+To design a menu-driven user interface.
+To create and display multiple geometric shapes.
+To provide functionality for adding, modifying, deleting, and displaying graphical objects.
+To manage graphical objects using structures and unique identifiers.
+To demonstrate dynamic canvas redrawing whenever modifications occur.
+To apply software development practices using Git and GitHub for version control.
+Features Implemented
+1. Canvas Management
+Creation of a two-dimensional drawing canvas.
+Canvas dimensions of 100 columns and 30 rows.
+Automatic initialization of the canvas with blank characters.
+Display of the canvas with proper borders.
+2. Shape Creation
+
+The editor supports the creation of the following graphical objects:
+
+Rectangle
+Drawn using width and height parameters.
+Position specified using top-left coordinates.
+Line
+Supports horizontal and vertical line drawing.
+Created using start and end coordinates.
+Circle
+Drawn using center coordinates and radius.
+Uses mathematical distance calculations to approximate circular boundaries.
+Triangle
+Hollow triangle implementation.
+Created using apex coordinates and height.
+3. Shape Storage System
+
+Each graphical object is stored in a structure containing:
+
+Unique Shape ID
+Shape Type
+Position Coordinates
+Size Parameters
+Active/Deleted Status
+
+This enables efficient management and retrieval of graphical objects throughout program execution.
+
+4. Add Shape Functionality
+
+Users can dynamically add new shapes to the canvas through the menu system.
+
+Features include:
+
+Automatic ID generation
+Shape parameter input
+Storage in shape database
+Automatic canvas refresh
+5. Delete Shape Functionality
+
+Users can remove shapes from the drawing by specifying the shape ID.
+
+The deletion process:
+
+Marks the selected shape as inactive.
+Clears the canvas.
+Redraws all remaining active shapes.
+Preserves the integrity of other objects.
+6. Modify Shape Functionality
+
+Users can modify existing graphical objects by entering the corresponding shape ID.
+
+Supported modifications include:
+
+Position updates
+Dimension updates
+Radius updates
+Height updates
+
+After modification:
+
+Canvas is cleared.
+Shapes are redrawn.
+Updated object becomes immediately visible.
+7. Shape Listing System
+
+The editor provides a complete list of stored objects including:
+
+Shape ID
+Shape Type
+Current Status (Active/Deleted)
+
+This feature helps users track and manage graphical objects efficiently.
+
+8. Dynamic Canvas Redrawing
+
+One of the key features of the project is the redraw mechanism.
+
+Whenever:
+
+A shape is added
+A shape is deleted
+A shape is modified
+
+The system:
+
+Clears the canvas.
+Iterates through all active shapes.
+Redraws every object.
+Displays the updated drawing.
+
+This ensures consistency and prevents visual corruption of the canvas.
+
+Data Structures Used
+Structure
+
+A custom structure is used to represent each graphical object.
+
+The structure stores:
+
+Shape ID
+Shape Type
+Activity Status
+Position Coordinates
+Shape Dimensions
+
+This approach provides a clean and scalable method for object management.
+
+Algorithms Used
+Rectangle Drawing Algorithm
+
+Uses iterative loops to draw:
+
+Top edge
+Bottom edge
+Left edge
+Right edge
+Line Drawing Algorithm
+
+Supports:
+
+Horizontal lines
+Vertical lines
+
+Using coordinate comparison and loop-based plotting.
+
+Circle Drawing Algorithm
+
+Uses the distance formula:
+
+(x−h)
+2
++(y−k)
+2
+=r
+2
+
+to determine boundary points of the circle and draw an approximate circular shape on the character canvas.
+
+Triangle Drawing Algorithm
+
+Constructs:
+
+Left edge
+Right edge
+Base
+
+using coordinate calculations and iterative plotting.
+
+Technologies Used
+Programming Language
+C
+Concepts Applied
+Arrays
+Structures
+Functions
+Loops
+Conditional Statements
+Menu-Driven Programming
+Modular Programming
+Version Control
+Git
+GitHub
+Learning Outcomes
+
+Through the development of this project, the following concepts were reinforced:
+
+Problem decomposition
+Structured programming
+Data organization using structures
+Dynamic object management
+Coordinate-based drawing systems
+Software version control practices
+Debugging and testing methodologies
+Conclusion
+
+The Graphics Editor successfully demonstrates how fundamental graphics operations can be implemented using standard C programming techniques without the use of external graphics libraries. The project provides an interactive environment where users can create, manage, modify, and visualize graphical objects on a text-based canvas.
+
+The implementation highlights the practical use of arrays, structures, functions, and modular programming while also introducing basic concepts of computer graphics and object management. The project serves as a strong foundation for future enhancements such as filled shapes, diagonal lines, color support, file saving/loading, and graphical user interfaces.
+
+Developed By: Anish
+Project: Menu-Driven 2D Graphics Editor in C
