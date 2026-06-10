@@ -287,9 +287,87 @@ void show_menu(void)
     printf("3. Add Circle\n");
     printf("4. Add Triangle\n");
     printf("5. Delete Shape\n");
-    printf("6. List Shapes\n");
-    printf("7. Show Canvas\n");
-    printf("8. Exit\n");
+    printf("6. Modify Shape\n");
+    printf("7. List Shapes\n");
+    printf("8. Show Canvas\n");
+    printf("9. Exit\n");
+}
+void modify_shape(void)
+{
+    int id;
+    int i;
+
+    printf("Enter shape ID to modify: ");
+    scanf("%d", &id);
+
+    for(i = 0; i < total; i++)
+    {
+        if(shapes[i].id == id && shapes[i].alive == 1)
+        {
+            if(shapes[i].type == RECTANGLE)
+            {
+                printf("Enter new x: ");
+                scanf("%d", &shapes[i].x);
+
+                printf("Enter new y: ");
+                scanf("%d", &shapes[i].y);
+
+                printf("Enter new width: ");
+                scanf("%d", &shapes[i].a);
+
+                printf("Enter new height: ");
+                scanf("%d", &shapes[i].b);
+            }
+
+            else if(shapes[i].type == LINE)
+            {
+                printf("Enter new x1: ");
+                scanf("%d", &shapes[i].x);
+
+                printf("Enter new y1: ");
+                scanf("%d", &shapes[i].y);
+
+                printf("Enter new x2: ");
+                scanf("%d", &shapes[i].a);
+
+                printf("Enter new y2: ");
+                scanf("%d", &shapes[i].b);
+            }
+
+            else if(shapes[i].type == CIRCLE)
+            {
+                printf("Enter new center x: ");
+                scanf("%d", &shapes[i].x);
+
+                printf("Enter new center y: ");
+                scanf("%d", &shapes[i].y);
+
+                printf("Enter new radius: ");
+                scanf("%d", &shapes[i].a);
+            }
+
+            else if(shapes[i].type == TRIANGLE)
+            {
+                printf("Enter new apex x: ");
+                scanf("%d", &shapes[i].x);
+
+                printf("Enter new apex y: ");
+                scanf("%d", &shapes[i].y);
+
+                printf("Enter new height: ");
+                scanf("%d", &shapes[i].a);
+            }
+
+            printf("Shape modified successfully!\n");
+
+            clear_canvas();
+            redraw_shapes();
+
+            return;
+        }
+    }
+
+    printf("Shape not found!\n");
 }
 
 void add_rectangle(void)
@@ -434,20 +512,21 @@ int main(void)
             case 5:
                 delete_shape_menu();
                 break;
-            case 6:
-                list_shapes();
+           case 6:
+                modify_shape();
                 break;
 
             case 7:
-                show_canvas();
+                list_shapes();
                 break;
 
             case 8:
+                show_canvas();
+                 break;
+
+            case 9:
                 printf("Exiting...\n");
                 return 0;
-
-            default:
-                printf("Option not implemented yet.\n");
         }
     }
 
